@@ -5,11 +5,17 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
+    --better mappings
+    use "b0o/mapx.nvim"
+
     --auto pairs
     use {
         "windwp/nvim-autopairs",
         config = function() require("nvim-autopairs").setup {} end
     }
+
+    --tokyongiht theme
+    use 'folke/tokyonight.nvim'
 
     --cool thing
     use("eandrju/cellular-automaton.nvim")

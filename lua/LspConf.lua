@@ -1,20 +1,29 @@
                             --lst cofing
 
+require'lspconfig'.rust_analyzer.setup({})
 local lsp = require('lsp-zero')
+
 lsp.preset('recommended')
 
 lsp.ensure_installed({
-    'rust_analyzer',
     'sumneko_lua',
+    'rust_analyzer',
 })
 
 local cmp = require('cmp')
-local cmp_mappings = lsp.defaults.cmp_mappings({
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ['<C-y>'] = cmp.mapping.confirm({select = true}),
+
+lsp.setup_nvim_cmp({
+  mapping = cmp.mapping.preset.insert({
+    ['<C-y'] = cmp.mapping.complete(),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+  })
 })
 
 -- (Optional) Configure lua language server for neovim
-lsp.nvim_workspace()
+
+lsp.set_preferences({
+    sign_icons = {}
+})
 
 lsp.setup()

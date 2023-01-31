@@ -5,7 +5,8 @@ local o = vim.o
 --vim.api.nvim_exec('language en_US')
 --colorscheme = gruvbox
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+--vim.cmd([[colorscheme gruvbox]])
+vim.cmd[[colorscheme tokyonight]]
 
 --cmd('syntax on')
 vim.api.nvim_command('filetype plugin indent on')
